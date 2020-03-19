@@ -44,7 +44,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {//
 
 		http
 		.csrf().disable()
-		.authorizeRequests().antMatchers("/login","/log").permitAll()
+		.authorizeRequests().antMatchers("/login").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
@@ -76,13 +76,13 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {//
 	
 	
 	
-	@Bean
-	@Override
-	protected UserDetailsService userDetailsService() {	
-			List<UserDetails> users = new ArrayList<>();
-			users.add(User.withDefaultPasswordEncoder().username("veer").password("1234").roles("USER").build());	
-			return new InMemoryUserDetailsManager(users);
-
-	}
+//	@Bean
+//	@Override
+//	protected UserDetailsService userDetailsService() {	
+//			List<UserDetails> users = new ArrayList<>();
+//			users.add(User.withDefaultPasswordEncoder().username("veer").password("1234").roles("USER").build());	
+//			return new InMemoryUserDetailsManager(users);
+//
+//	}
 
 }
